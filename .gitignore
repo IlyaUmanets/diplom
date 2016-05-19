@@ -1,0 +1,16 @@
+/app/assets/images/temp
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+/coverage
+/config/database.yml
+/config/secrets.yml
+/public/uploads/*
+tags
+.idea
+*.iml
+*.~
