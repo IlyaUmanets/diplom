@@ -1,4 +1,4 @@
-class Admin::SessionsController < AdminController
+class Admin::SessionsController < AdminsController
   skip_before_action :require_admin
 
   def create

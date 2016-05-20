@@ -1,0 +1,2 @@
+td = user.email
+td = select :user, :role, options_for_select(User.roles.keys, selected: user.role), {}, data: { remote: true, url: admin_users_path(id: user.id), method: :put }
