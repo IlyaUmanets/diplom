@@ -7,6 +7,8 @@ gem 'jquery-rails'
 gem 'rails', '4.2.6'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
+gem 'slim-rails'
+gem 'simple_form'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
