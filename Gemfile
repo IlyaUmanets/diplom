@@ -18,9 +18,21 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry'
 end
 
 group :development do
+  gem 'letter_opener'
+  gem 'rubocop'
   gem 'spring'
   gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'capybara-email'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'rspec-rails'
 end
