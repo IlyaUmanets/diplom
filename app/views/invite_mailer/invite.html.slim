@@ -1,0 +1,9 @@
+p
+  ' Hello
+  = @email
+p
+  ' You have been invited to our system. Your password:
+  = @password
+p
+  ' Follow this link
+  = link_to 'Follow me', edit_user_profile_path(@user)
