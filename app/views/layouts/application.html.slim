@@ -6,4 +6,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = yield
+    .page-container
+      .page-content
+        = render 'shared/sidebar'
+        .content-wrapper
+          = yield

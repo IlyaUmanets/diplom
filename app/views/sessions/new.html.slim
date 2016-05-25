@@ -1,4 +1,10 @@
-= simple_form_for :session, url: session_path do |f|
-  = f.input :email
-  = f.input :password
-  = f.button :button, 'Sign in'
+.page-header
+  .page-header-content
+    .page-title
+      h4
+        span.text-semibold Log in
+.content
+  = simple_form_for :session, url: session_path do |f|
+    = f.input :email
+    = f.input :password
+    = f.button :button, 'Sign in'
