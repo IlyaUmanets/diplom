@@ -1,0 +1,30 @@
+.sidebar.sidebar-main
+  .sidebar-content
+    .sidebar-user
+      .category-content
+        .media
+          a.media-left href="#"
+          .media-body
+            span.media-heading.text-semibold Victoria Baker
+    .sidebar-category.sidebar-category-visible
+      .category-content.no-padding
+        ul.navigation.navigation-main.navigation-accordion
+          li.navigation-header
+            span Main
+            i.icon-menu
+          li
+            = link_to admin_dashboards_path
+              i.icon-home4
+              span Admin
+          li
+            = link_to dashboards_path do
+              i.icon-home4
+              span Dashboard
+          li
+            a href="#"
+              i.icon-stack2
+              span Page layouts
+          li
+            = link_to session_path, method: :delete do
+              i.icon-home4
+              span Log out
