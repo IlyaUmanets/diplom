@@ -4,7 +4,7 @@ class Admin::SessionsController < AdminsController
   def create
     user = User.find_by(email: session_params[:email].downcase)
     if user && user.authenticate(session_params[:password])
-      session[:user_id] = user.id
+      session[:admin_id] = user.id
       redirect_to admin_dashboards_path
     else
       render :new
@@ -12,7 +12,7 @@ class Admin::SessionsController < AdminsController
   end
 
   def destroy
-    session.delete(:user_id)
+    session.delete(:admin_id)
   end
 
   private
