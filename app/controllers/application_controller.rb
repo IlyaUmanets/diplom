@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     User.find(session[:user_id]) if session[:user_id]
   end
 
+  def current_admin
+    User.find(session[:admin_id]) if session[:admin_id]
+  end
+
   helper_method :current_user
 
   private
