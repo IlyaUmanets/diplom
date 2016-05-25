@@ -12,11 +12,11 @@ class Admin::InvitesController < AdminsController
   private
 
   def user_params
-    password = SecureRandom.hex(3)
+    @password ||= SecureRandom.hex(3)
     {
       email: params[:invite][:email],
-      password: password,
-      password_confirmation: password
+      password: @password,
+      password_confirmation: @password
     }
   end
 end
