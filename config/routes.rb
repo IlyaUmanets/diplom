@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :dashboards, only: :index
     resource :users, only: :update
     resource :invite, only: [:new, :create]
+    resources :tests
   end
 end
