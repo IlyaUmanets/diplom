@@ -1,11 +1,18 @@
-h1 Hello admin
-= link_to 'Invite someone', new_admin_invite_path
-br
-= link_to 'New test', new_admin_test_path
+.content
+  .panel.panel-flat
+    .panel-heading
+      h5.panel-title Dashboard
+    .panel-body
+      = link_to 'Invite someone', new_admin_invite_path
+      br
+      = link_to 'New test', new_admin_test_path
 
-table
-  th Email
-  th
-  - @users.each do |user|
-    tr id="user_#{user.id}"
-      = render user
+      table.table
+        thead
+          tr
+            th Email
+            th Change role
+        tbody
+          - @users.each do |user|
+            tr id="user_#{user.id}"
+              = render user

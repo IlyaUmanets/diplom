@@ -1,0 +1,24 @@
+.content
+  .panel.panel-flat
+    .panel-heading
+      h5.panel-title Choose your test
+    .panel-body
+      table.table
+        thead
+          tr
+            th Name
+            th Try pass
+            th Results
+        tbody
+          - @tests.each do |test|
+            tr
+              td
+                = test.name
+                - if current_user.user_tests.where(test: test).present?
+                  span.label.label-danger.position-right Passed
+                - else
+                  span.label.label-success.position-right New
+
+              td= link_to 'Try pass this test', new_test_user_test_path(test)
+              - if current_user.user_tests.where(test: test).present?
+                td= link_to 'Show results', test_user_tests_path(test)

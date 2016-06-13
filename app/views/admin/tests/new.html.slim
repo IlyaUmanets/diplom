@@ -1,12 +1,7 @@
-= form_for [:admin, @test] do |f|
-  = f.text_field :name
-
-  = f.fields_for :questions, [@test.questions.build] do |question_f|
-    = question_f.text_field :body
-    = question_f.text_field :explain_answer
-
-    = question_f.fields_for :answers, [@test.answers.build] do |answer_f|
-      = answer_f.text_field :body
-      = answer_f.check_box :correct, as: :boolean
-
-  = f.submit
+.content
+  .panel.panel-flat
+    .panel-heading
+      h5.panel-title New test
+    .panel-body
+      .col-lg-12
+        = render 'form'

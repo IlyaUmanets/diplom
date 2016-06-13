@@ -10,6 +10,6 @@ feature 'User sign in' do
     fill_in 'Password', with: user.password
     click_button 'Sign in'
 
-    expect(page).to have_content('Hello user')
+    expect(page).to have_content('Choose your test')
   end
 end

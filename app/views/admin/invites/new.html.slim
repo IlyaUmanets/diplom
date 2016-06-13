@@ -1,3 +1,12 @@
-= simple_form_for :invite, url: admin_invite_path do |f|
-  = f.input :email
-  = f.button :button, 'Send invite'
+.content
+  .panel.panel-flat
+    .panel-heading
+      h5.panel-title Invite user
+    .panel-body
+      .col-lg-6
+        = form_for :invite, url: admin_invite_path, html: { class: 'form-horizontal' } do |f|
+          .form-group
+            = f.label :email, class: 'control-label col-lg-3'
+            .col-lg-9
+              = f.email_field :email, class: 'form-control'
+          = f.submit 'Send invite', class: 'btn btn-primary'

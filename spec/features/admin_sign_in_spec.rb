@@ -10,6 +10,6 @@ feature 'Admin sign in' do
     fill_in 'Password', with: admin.password
     click_button 'Sign in'
 
-    expect(page).to have_content('Hello admin')
+    expect(page).to have_content('Dashboard')
   end
 end

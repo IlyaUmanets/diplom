@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  root 'dashboards#index'
+  root 'tests#index'
 
-  resources :dashboards, only: :index
   resource :session, only: [:new, :create, :destroy]
   resources :users do
-    resource :profile, only: [:edit, :update]
+    resources :profiles, only: [:edit, :update]
+  end
+
+  resources :tests, only: :index do
+    resources :user_tests, except: [:edit, :update]
   end
 
   namespace :admin do

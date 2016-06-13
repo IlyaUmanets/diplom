@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     User.find(session[:admin_id]) if session[:admin_id]
   end
 
-  helper_method :current_user
+  helper_method :current_user, :current_admin
 
   private
 

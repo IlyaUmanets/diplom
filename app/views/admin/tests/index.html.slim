@@ -1,0 +1,17 @@
+.content
+  .panel.panel-flat
+    .panel-heading
+      h5.panel-title Dashboard
+    .panel-body
+      = link_to 'New test', new_admin_test_path
+
+      table.table
+        thead
+          tr
+            th Name
+            th
+        tbody
+          - @tests.each do |test|
+            tr id="test_#{test.id}"
+              td= test.name
+              td= link_to 'Edit', edit_admin_test_path(test)
