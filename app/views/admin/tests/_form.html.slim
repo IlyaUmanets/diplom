@@ -1,0 +1,28 @@
+= form_for [:admin, @test], html: { class: 'form-horizontal' } do |f|
+  .form-group
+    = f.label :name, class: 'control-label col-lg-1'
+    .col-lg-11
+      = f.text_field :name, class: 'form-control'
+  .row
+    .col-lg-1
+    .col-lg-11
+      = f.nested_fields_for :questions do |question_f|
+        .form-group
+          = question_f.label :body, class: 'control-label col-lg-1'
+          .col-lg-11
+            = question_f.text_field :body, class: 'form-control'
+        .row
+          .col-lg-1
+          .col-lg-11
+            = question_f.nested_fields_for :answers do |answer_f|
+              .form-group
+                = answer_f.label :body, class: 'control-label col-lg-1'
+                .col-lg-11
+                  = answer_f.text_field :body, class: 'form-control'
+              .form-group
+                = answer_f.label :correct, class: 'control-label col-lg-1'
+                .col-lg-11
+                  = answer_f.check_box :correct
+            = question_f.add_nested_fields_link :answers
+      = f.add_nested_fields_link :questions
+  = f.submit 'Submit', class: 'btn btn-primary'

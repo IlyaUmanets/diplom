@@ -1,0 +1,13 @@
+.content
+  = form_for [@test, @user_test], html: { class: 'form-horizontal' } do |f|
+    - @test.questions.each_with_index do |question, i|
+      = f.fields_for :user_results, @user_test.user_results.build do |ff|
+          = ff.hidden_field :question_id, value: question.id
+          .panel.panel-flat
+            .panel-heading
+              .panel-title= question.body
+            .panel-body
+              = ff.collection_radio_buttons :answer_id, question.answers, :id, :body do |b|
+                .radio
+                  = b.label(class: 'radio-inline radio-left') { b.radio_button + b.text }
+    = f.submit 'Check yourself', class: 'btn btn-primary'

@@ -1,4 +1,16 @@
-= simple_form_for :session, url: admin_session_path do |f|
-  = f.input :email
-  = f.input :password
-  = f.button :button, 'Sign in'
+.content
+  .panel.panel-flat
+    .panel-heading
+      h5.panel-title Log in
+    .panel-body
+      .col-lg-6
+        = form_for :session, url: admin_session_path, html: { class: 'form-horizontal' } do |f|
+          .form-group
+            = f.label :email, class: 'control-label col-lg-3'
+            .col-lg-9
+              = f.email_field :email, class: 'form-control'
+          .form-group
+            = f.label :password, class: 'control-label col-lg-3'
+            .col-lg-9
+              = f.password_field :password, class: 'form-control'
+          = f.submit 'Sign in', class: 'btn btn-primary'

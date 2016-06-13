@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525201058) do
+ActiveRecord::Schema.define(version: 20160612192721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,9 +41,8 @@ ActiveRecord::Schema.define(version: 20160525201058) do
   create_table "questions", force: :cascade do |t|
     t.integer  "test_id"
     t.text     "body"
-    t.text     "explain_answer"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "questions", ["test_id"], name: "index_questions_on_test_id", using: :btree
@@ -56,6 +55,28 @@ ActiveRecord::Schema.define(version: 20160525201058) do
   end
 
   add_index "tests", ["user_id"], name: "index_tests_on_user_id", using: :btree
+
+  create_table "user_results", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.integer  "user_test_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "user_results", ["answer_id"], name: "index_user_results_on_answer_id", using: :btree
+  add_index "user_results", ["question_id"], name: "index_user_results_on_question_id", using: :btree
+  add_index "user_results", ["user_test_id"], name: "index_user_results_on_user_test_id", using: :btree
+
+  create_table "user_tests", force: :cascade do |t|
+    t.integer  "test_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_tests", ["test_id"], name: "index_user_tests_on_test_id", using: :btree
+  add_index "user_tests", ["user_id"], name: "index_user_tests_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -70,4 +91,9 @@ ActiveRecord::Schema.define(version: 20160525201058) do
   add_foreign_key "profiles", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "users"
+  add_foreign_key "user_results", "answers"
+  add_foreign_key "user_results", "questions"
+  add_foreign_key "user_results", "user_tests"
+  add_foreign_key "user_tests", "tests"
+  add_foreign_key "user_tests", "users"
 end

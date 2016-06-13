@@ -3,7 +3,6 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.belongs_to :test, index: true, foreign_key: true
       t.text :body
-      t.text :explain_answer
 
       t.timestamps null: false
     end

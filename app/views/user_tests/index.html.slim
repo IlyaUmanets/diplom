@@ -1,0 +1,24 @@
+.content
+  .panel.panel-flat
+    .panel-heading
+      h5.panel-title= "Test results for: \"#{@user_tests.first.test.name}\""
+  - @user_tests.each_with_index do |user_test, i|
+    .row
+      .col-lg-2
+        h5.panel-title= "#{i+1} attempt"
+    br
+    - user_test.user_results.each do |user_result|
+      .col-lg-12
+        .col-lg-6
+          .panel.panel-flat
+            .panel-heading
+              p.panel-title= user_result.question_body
+            .panel-body.user-results
+              div class="bg-#{user_result.answer_correct ? 'success' : 'danger'}"
+                = user_result.answer_body
+
+    .row
+      .col-lg-6
+        .panel.panel-flat
+          .panel-heading
+            p= "You have correct #{pluralize(user_test.correct_answers_count, 'answer')}  from #{user_test.user_results.count} questions"
